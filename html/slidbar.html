@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+.container{
+        width: 400px;
+        height: 20px;
+        margin: 0 auto;
+        margin-top: 100px;
+        border:2px solid #388bfb;
+        line-height: 20px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        overflow: hidden;
+    }
+    .time{
+        background: #85B9FF;
+        height: 100%;
+        text-align: center;
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        color: #fff;
+    }</style>
+<body>
+        <div class="container" id="container">
+                <div class="time" id="bar" style="width:0%;"></div>
+            </div>
+</body>
+<script>
+function load(){
+  var bar = document.getElementById("bar");
+  bar.style.width = parseInt(bar.style.width) +1 +"%";
+  bar.innerHTML = bar.style.width;
+  if(bar.style.width == "99%"){
+    window.clearTomeout(jindu);
+    return;
+  }
+var jindu = setTimeout("load()",100);
+}
+window.onload = function(){
+  load();
+}
+
+
+</script>
+</html>
