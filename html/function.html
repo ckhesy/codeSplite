@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>js黑科技----之奇淫技巧</title>
+        <style>
+    pre[class*=language-].line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+    }
+    pre[class*=language-] {
+    word-wrap: normal;
+    word-break: break-all;
+    white-space: pre;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    z-index: 0;
+    padding: 1em;
+    line-height: 1.5;
+    color: #ccc;
+    background: #2d2d2d;
+    }
+    </style>
+    </head>
+    <body>
+            1.单行写一个评级系统
+        <pre class="line-numbers language-bash">
+            <code class="  language-bash">"★★★★★☆☆☆☆☆".slice(5 - rate, 10 - rate);
+                <span aria-hidden="true" class="line-numbers-rows"><span></span></span>
+            </code>
+        </pre>
+        2.JavaScript错误处理
+        <pre class="line-numbers language-bash">
+                <code class="  language-bash">
+                        try {
+                            something
+                        } catch (e) {
+                            window.location.href =
+                                "http://stackoverflow.com/search?q=[js]+" +
+                                e.message;
+                        }
+                    <span aria-hidden="true" class="line-numbers-rows"><span></span></span>
+                </code>
+        </pre>
+        4.获取随机字符串
+        <pre class="line-numbers language-bash">
+            <code class="  language-bash">Math.random().toString(16).substring(2)
+                <span aria-hidden="true" class="line-numbers-rows"><span></span></span>
+            </code>
+        </pre>
+        7.实现金钱格式化
+        <pre class="line-numbers language-bash">
+                <code class="  language-bash">
+                        var test1 = '1234567890'
+var format = test1.replace(/\B(?=(\d{3})+(?!\d))/g, ',')
+console.log(format) // 1,234,567,890
+                    <span aria-hidden="true" class="line-numbers-rows"><span></span></span>
+                </code>
+        </pre>
+        非正则实现
+        <pre class="line-numbers language-bash">
+                <code class="  language-bash">
+                        function formatCash(str) {
+                            return str.split('').reverse().reduce((prev, next, index) => {
+                                 return ((index % 3) ? next : (next + ',')) + prev
+                            })
+                     }
+                     console.log(formatCash('1234567890')) // 1,234,567,890
+                     Json的深拷贝
+                     var a = {
+                         a: 1,
+                         b: { c: 1, d: 2 }
+                     }
+                     var b=JSON.parse(JSON.stringify(a))
+                    <span aria-hidden="true" class="line-numbers-rows"><span></span></span>
+                </code>
+        </pre>
+
+    </body>
+</html>
