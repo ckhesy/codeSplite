@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas {border: 1px solid black;}
+		</style>
+	</head>
+	<body>
+        <canvas id="cas" width="600" height="600"></canvas>
+        <canvas id="stockGraph" width="150" height="150">
+                current stock price: $3.15 +0.15
+        </canvas>
+        <canvas id="cas2" width="600" height="600"></canvas>
+	</body>
+	<script type="text/javascript">
+		//获得画布
+		var cas = document.getElementById("cas");
+		//获取工具
+		var ctx = cas.getContext("2d");
+		
+		ctx.moveTo(100,100);
+		
+		ctx.lineTo(200,200);
+		ctx.lineTo(200,100);
+		ctx.lineTo(400,100);
+		
+		ctx.stroke();
+    </script>
+      <script type="application/javascript">
+        function draw() {
+          var canvas = document.getElementById("stockGraph");
+          if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+    
+            ctx.fillStyle = "rgb(200,0,0)";
+            ctx.fillRect (10, 10, 55, 50);
+    
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect (30, 30, 55, 50);
+          }
+        }
+        draw()
+      </script>
+          <script type="text/javascript">
+            //获得画布
+            var cas = document.getElementById("cas2");
+            //获取工具
+            var ctx = cas.getContext("2d");
+            
+            ctx.moveTo(0,0);
+            var x,y;
+            for(var i=0; i<200; i++){
+                x = i;
+                y = (x/10) * (x/10);
+                
+                ctx.lineTo(x,y);
+            }
+            
+            ctx.stroke();
+        </script>
+</html>
