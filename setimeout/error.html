@@ -9,21 +9,27 @@
 </body>
 <script type="text/javascript">
   let timerId = null
+  let timestap = +new Date()
   function getData() {
       return new Promise((resolve,reject) => {
           setTimeout(() => {
+            console.log(+new Date() - timestap)
+            timestap = +new Date()
               resolve({data:666})
-          },500)
+          },200)
       })
   }
   // 轮询
   async function start () {
     const { data } = await getData() // 模拟请求
+    // const data = 777
     console.log(data)
     timerId = setTimeout(start, 1000)
+    console.log(timerId, '------')
   }
   // 暂停
   function stop () {
+    console.log(timerId,'+++++++')
     clearTimeout(timerId)
   }
 
@@ -34,6 +40,7 @@
   botton.addEventListener("click", function(){
     isPlay = !isPlay
     botton.innerHTML = isPlay ? '暂停' : '播放'
+    console.log(isPlay)
     isPlay ? start() : stop()
   }, false)
 </script>
